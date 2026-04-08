@@ -30,3 +30,7 @@ while True:
             num += 1
             print(num, dec2bin(num))
             time.sleep(sleep_time)
+            
+    if (num == 2 ** 8 - 1) num = 0
+    if (num < 0) num = 2 ** 8 - 1 
+    GPIO.output(leds, dec2bin(num))
