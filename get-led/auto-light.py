@@ -13,4 +13,3 @@ GPIO.setup(photo_res, GPIO.IN)
 
 while True:
     GPIO.output(led, not GPIO.input(photo_res))
-
