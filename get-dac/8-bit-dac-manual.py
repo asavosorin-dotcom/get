@@ -1,7 +1,8 @@
 import RPi.GPIO as GPIO
-import time
 
 GPIO.setmode(GPIO.BCM)
+
+dynamic_range = 3.3
 
 def voltage_to_number(voltage):
     if not (0.0 <= voltage <= dynamic_range):
