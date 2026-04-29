@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import time 
 
 def dec2bin(value):
     return [int(element) for element in bin(value)[2:].zfill(8)]
@@ -29,7 +30,7 @@ class R2R_ADC:
             time.sleep(compare_time)
 
             comp_value = GPIO.input(self.comp_gpio)
-            if (comp_value):
+            if comp_value:
                 return i
 
     def get_sc_voltage(self):
@@ -37,8 +38,8 @@ class R2R_ADC:
         return number_voltage / 256 * self.dynamic_range
 
 try:
-    r2r_adc = R2R_ADC(5)
+    r2r_adc = R2R_ADC(3.292)
 
-    while (True):
+    while True:
         voltage = r2r_adc.get_sc_voltage()
         print(f"Voltage {voltage}")
