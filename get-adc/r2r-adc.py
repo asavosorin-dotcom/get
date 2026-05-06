@@ -33,13 +33,20 @@ class R2R_ADC:
             if comp_value:
                 return i
 
+        return 255
+
     def get_sc_voltage(self):
         number_voltage = self.sequential_counting_adc()
         return number_voltage / 256 * self.dynamic_range
 
-try:
-    r2r_adc = R2R_ADC(3.292)
+if __name__ == "__main__":
+    try:
+        r2r_adc = R2R_ADC(3.292)
 
-    while True:
-        voltage = r2r_adc.get_sc_voltage()
-        print(f"Voltage {voltage}")
+        while True:
+            voltage = r2r_adc.get_sc_voltage()
+            print(f"Voltage {voltage: .3f}")
+            time.sleep(0.5)
+
+    finally:
+        r2r_adc.deinit()

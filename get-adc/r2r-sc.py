@@ -1,6 +1,7 @@
 import time
 from r2r_adc import R2R_ADC
 from adc_plot import plot_voltage_vs_time
+from adc_plot import plot_sampling_period_hist
 
 adc = R2R_ADC(3.219, compare_time=0.0001)
 
